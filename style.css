@@ -1,0 +1,226 @@
+
+/* python -m http.server 8000 */
+
+  /* ============================================
+     COLORS — change these to whatever palette you want.
+     Every color in the page below pulls from here.
+  ============================================ */
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #666666;
+    --accent: #2563eb;
+    --border: #e5e5e5;
+  }
+
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  a { color: var(--accent); }
+
+  /* ============================================
+     NAV
+  ============================================ */
+  nav {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+  nav a { text-decoration: none; color: var(--text); }
+
+  /* ============================================
+     HERO — your intro section
+  ============================================ */
+  .hero {
+    padding: 80px 0 60px;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 560px;
+    margin-bottom: 24px;
+  }
+  .hero .links a {
+    margin-right: 16px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .hero img, .hero video {
+  border-radius: 6px;
+  background: #f2f2f2;
+    }
+
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+.hero-top img, .hero-top video {
+  width: 40%;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .hero-top {
+    flex-direction: column;
+  }
+  .hero-top img, .hero-top video {
+    width: 100%;
+  }
+}
+
+  /* ============================================
+     SECTIONS
+  ============================================ */
+  section {
+    padding: 50px 0;
+    border-top: 1px solid var(--border);
+  }
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  /* ============================================
+     PROJECT CARD — repeat this block for each project
+  ============================================ */
+ .project {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.project:last-child { border-bottom: none; }
+.project h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.project .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+.project p {
+  margin-bottom: 12px;
+}
+.project img, .project video {
+  border-radius: 6px;
+  background: #f2f2f2;
+  width: 15%;
+}
+
+.project .links a {
+  margin-right: 16px;
+  font-size: 0.9rem;
+}
+
+.project ul {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+.project li {
+  margin-bottom: 4px;
+}
+
+/* ---- this is what puts text + video side by side ---- */
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.project-text {
+  flex: 1;
+  min-width: 0;
+}
+.project-top img, .project-top video {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.project-sub {
+  display: flex;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+@media (max-width: 600px) {
+  .project-top {
+    flex-direction: column;
+  }
+  .project-top img, .project-top video {
+    width: 100%;
+  }
+}
+
+  /* ============================================
+     CONTACT / FOOTER
+  ============================================ */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.9rem; }
+  }
+
+
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

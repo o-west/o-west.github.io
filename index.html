@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Oliver West Portfolio</title>
+</head>
+<body>
+
+<!-- ============================================
+     NAV — links to the sections below by their id
+============================================ -->
+<nav>
+  <div class="container">
+    <strong>Oliver West's Portfolio</strong>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================
+     HERO — first thing people see. Keep it short.
+============================================ -->
+<header class="hero">
+  <div class="container">
+    <h1>About me</h1>
+    <div class="hero-top">
+    <img src="placeHolderImg.jpg" alt="Project demo placeholder" style="aspect-ratio: 200/200;">
+    <p>
+      Im a final-year Mechatronics Engineering student at the University of Canterbury with an interest in computer vision and autonomous systems, with project experience in 3D reconstruction, image classification, object detection/segmentation, deep learning pipelines, and SLAM-based navigation. Proficient in YOLO and ResNet architectures, and tools including MediaPipe, Open3D, and OpenCV. Experienced applying computer vision to physical systems such as real-time drone control.
+    </p>
+  </div>
+  </div>
+</header>
+
+<!-- ============================================
+     PROJECTS — copy the .project block for each one
+============================================ -->
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+
+    <div class="project">
+        <h3>GESTURE BASED CONTROLLER FOR FILM DRONE</h3>
+        <div class="meta">University of Canterbury - Computer vision research project</div>
+        <div class="project-top">
+            <div class="project-text">
+                <p>
+                    Developed a human-drone interaction (HDI) based controller for a DJI Tello drone that 
+                    can be operated with hand gestures and body movements, aiming to design a more intuitive control method.
+                </p>
+                <ul>
+                    <li>Combined geometric body pose tracking and hand gesture recognition to provide instructions to a DJI Tello drone.</li>
+                    <li>Only required a laptop to operate, allowing for a simple setup process and reducing potential cost.</li>
+                    <li>As part of this project, I wrote an IEEE conference style paper (unpublished) detailing the development and 
+                        results of my approach against other similar works. </li>
+                    <li>Gesture recognition achieved an accuracy comparable to other similar papers without the need for training data.</li>
+                    <li>Control method allowed for greater flexibility as there was no requirement to retain a model when adding new gestures.</li>
+                </ul>
+            </div>
+            <video src="drone-speed-up.mp4" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
+        </div>
+    </div>
+
+
+    <div class="project">
+        <h3>LIGHTWEIGHT SLAM PATHFINDING AND NAVIGATION</h3>
+        <div class="meta">University of Canterbury</div>
+        <div class="project-top">
+            <div class="project-text">
+        <!-- swap this for <img src="..."> or <video src="..." controls></video> -->
+        
+                <p>
+                    Built a lightweight simultaneous localisation and mapping (SLAM) algorithm in C to run on a Teensy 4.0 microcontroller.
+                    This algorithm was designed for an autonomous robot to navigate an arena, collect targets, and return to its starting point when full.
+                </p>
+                <ul>
+                    <li>Operated locally on the limited resources of a Teensy 4.0 microcontroller.</li>
+                    <li>Used a weighted map and an A* algorithm to plan efficient paths while avoiding being close to walls and obstacles. </li>
+                    <li>Combined multiple sensor inputs (time-of-flight, wheel encoders) to construct a map of the arena and track the robot's position on the map.</li>
+                </ul>
+            </div> 
+            <video src="slam-test-one-tof.mp4" controls style="aspect-ratio: 16/9;" alt="SLAM test with one TOF"></video>
+        </div> 
+
+      <div class="project-top" style= "margin-top: 40px;" >
+        <div class="row" style="width:50%;">
+          <div class="column">
+            <figure>
+              <img src="pf_no_wall_cost.png" alt="pf_no_wall_cost.png" style="width:60%" class="left">
+              <figcaption class="left" style="width:60%"><b>Fig 1:</b> Path finding with no wall cost.</figcaption>
+            </figure>
+          </div>
+          <div class="column">
+            <figure>
+              <img src="pf_with_wall_cost.png" alt="pf_with_wall_cost.png" style="width:60%" class="left">
+              <figcaption class="left" style="width:60%"><b>Fig 2:</b> Path finding with wall cost.</figcaption>
+            </figure>
+          </div>
+        </div>  
+        <div class="project-text">
+          <h4>Mapping</h4>
+          <p>Test text for stuff</p>
+        </div>
+      </div>   
+
+    </div>
+
+    <div class="project">
+      <h3>Project Name</h3>
+      <div class="meta">Role · Tools used · Status</div>
+      <!-- swap this for <img src="..."> or <video src="..." controls></video> -->
+      <img src="" alt="Project demo placeholder" style="aspect-ratio: 16/9;">
+      <p>
+        Short description: what it does, what problem it solves, what you
+        specifically built.
+      </p>
+      <div class="links">
+        <a href="#">View repo →</a>
+        <a href="#">Watch demo →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================
+     CONTACT
+============================================ -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:oliver.west@outlook.co.nz">oliver.west@outlook.co.nz</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Oliver West
+</footer>
+
+</body>
+</html>
