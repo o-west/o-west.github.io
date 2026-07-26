@@ -1,10 +1,6 @@
 
 /* python -m http.server 8000 */
 
-  /* ============================================
-     COLORS — change these to whatever palette you want.
-     Every color in the page below pulls from here.
-  ============================================ */
   :root {
     --bg: #ffffff;
     --text: #1a1a1a;
@@ -31,9 +27,7 @@
 
   a { color: var(--accent); }
 
-  /* ============================================
-     NAV
-  ============================================ */
+  /* nav */
   nav {
     border-bottom: 1px solid var(--border);
     padding: 20px 0;
@@ -50,9 +44,7 @@
   }
   nav a { text-decoration: none; color: var(--text); }
 
-  /* ============================================
-     HERO — your intro section
-  ============================================ */
+  /* intro */
   .hero {
     padding: 80px 0 60px;
   }
@@ -103,9 +95,8 @@
   }
 }
 
-  /* ============================================
-     SECTIONS
-  ============================================ */
+
+  /* Sections */
   section {
     padding: 50px 0;
     border-top: 1px solid var(--border);
@@ -115,9 +106,7 @@
     margin-bottom: 30px;
   }
 
-  /* ============================================
-     PROJECT CARD — repeat this block for each project
-  ============================================ */
+  /* Project */
  .project {
   margin-bottom: 40px;
   padding-bottom: 40px;
@@ -157,7 +146,6 @@
   margin-bottom: 4px;
 }
 
-/* ---- this is what puts text + video side by side ---- */
 .project-top {
   display: flex;
   justify-content: space-between;
@@ -184,7 +172,6 @@
   padding: 5px;
 }
 
-/* Clear floats after image containers */
 .row::after {
   content: "";
   clear: both;
@@ -202,9 +189,7 @@
   }
 }
 
-  /* ============================================
-     CONTACT / FOOTER
-  ============================================ */
+  /* Contact / Footer */
   footer {
     padding: 40px 0;
     text-align: center;
