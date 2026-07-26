@@ -22,13 +22,17 @@
 
 <header class="hero">
   <div class="container">
-    <h1>About me</h1>
-    <div class="hero-top">
-    <img src="placeHolderImg.jpg" alt="Project demo placeholder" style="aspect-ratio: 200/200;">
-    <p>
-      Im a final-year Mechatronics Engineering student at the University of Canterbury with an interest in computer vision and autonomous systems, with project experience in 3D reconstruction, image classification, object detection/segmentation, deep learning pipelines, and SLAM-based navigation. Proficient in YOLO and ResNet architectures, and tools including MediaPipe, Open3D, and OpenCV. Experienced applying computer vision to physical systems such as real-time drone control.
-    </p>
-  </div>
+    <div class = "row">
+      <div class="column">
+        <img src="placeHolderImg.jpg" alt="Project demo placeholder" class="center" style="width:80%">
+      </div>
+      <div class="column">
+        <h1 class="right">About me</h1>
+        <p>
+        Im a final-year Mechatronics Engineering student at the University of Canterbury with an interest in computer vision and autonomous systems, with project experience in 3D reconstruction, image classification, object detection/segmentation, deep learning pipelines, and SLAM-based navigation. Proficient in YOLO and ResNet architectures, and tools including MediaPipe, Open3D, and OpenCV. Experienced applying computer vision to physical systems such as real-time drone control.
+        </p>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -97,10 +101,29 @@
           <p>Test text for stuff</p>
         </div>
       </div>   
-
     </div>
 
+
     <div class="project">
+        <h3>BUILDING OCCUPANCY TRACKER - W.I.P.</h3>
+        <div class="meta">Personal project</div>
+        <div class="project-top">
+            <div class="project-text">
+                <p>
+                    Working on a building occupancy tracker to keep track of the current number of people within a building
+                    and provide warnings when this number exceedes saftey thresholds.
+                </p>
+                <ul>
+                    <li>Currently detects humans and adds them to the occupancy count when they cross a boundry line.</li>
+                    <li>Will stream multiple video feeds from a raspberry pi camera to a desktop where the computer vision algorithm will be inferenced.</li>
+                </ul>
+            </div>
+            <video src="" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
+        </div>
+    </div>
+
+
+    <!-- <div class="project">
       <h3>Project Name</h3>
       <div class="meta">Role · Tools used · Status</div>
       <img src="" alt="Project demo placeholder" style="aspect-ratio: 16/9;">
@@ -112,7 +135,7 @@
         <a href="#">View repo →</a>
         <a href="#">Watch demo →</a>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </section>
