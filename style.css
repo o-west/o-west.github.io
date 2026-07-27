@@ -55,7 +55,7 @@
   .hero p {
     color: var(--muted);
     font-size: 1.1rem;
-    max-width: 560px;
+    /* max-width: 560px; */
     margin-bottom: 24px;
   }
   .hero .links a {
@@ -69,7 +69,7 @@
   background: #f2f2f2;
     }
 
-
+/* 
 .hero-top {
   display: flex;
   justify-content: space-between;
@@ -84,7 +84,7 @@
 .hero-top img, .hero-top video {
   width: 40%;
   flex-shrink: 0;
-}
+} */
 
 @media (max-width: 600px) {
   .hero-top {
@@ -115,6 +115,11 @@
 .project:last-child { border-bottom: none; }
 .project h3 {
   font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.project h4{
+  font-size: 1.1rem;
   margin-bottom: 8px;
 }
 .project .meta {
@@ -207,5 +212,5 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  /* width: 50%; */
 }

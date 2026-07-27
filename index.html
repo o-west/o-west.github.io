@@ -13,7 +13,6 @@
     <strong>Oliver West's Portfolio</strong>
     <ul>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -22,17 +21,10 @@
 
 <header class="hero">
   <div class="container">
-    <div class = "row">
-      <div class="column">
-        <img src="placeHolderImg.jpg" alt="Project demo placeholder" class="center" style="width:80%">
-      </div>
-      <div class="column">
-        <h1 class="right">About me</h1>
-        <p>
-        Im a final-year Mechatronics Engineering student at the University of Canterbury with an interest in computer vision and autonomous systems, with project experience in 3D reconstruction, image classification, object detection/segmentation, deep learning pipelines, and SLAM-based navigation. Proficient in YOLO and ResNet architectures, and tools including MediaPipe, Open3D, and OpenCV. Experienced applying computer vision to physical systems such as real-time drone control.
-        </p>
-      </div>
-    </div>
+      <h1 class="right">About me</h1>
+      <p style="width: 100%;">
+      Im a final-year Mechatronics Engineering student at the University of Canterbury with an interest in computer vision and autonomous systems, with project experience in 3D reconstruction, image classification, object detection/segmentation, deep learning pipelines, and SLAM-based navigation. Proficient in YOLO and ResNet architectures, and tools including MediaPipe, Open3D, and OpenCV. Experienced applying computer vision to physical systems such as real-time drone control.
+      </p>
   </div>
 </header>
 
@@ -60,7 +52,29 @@
             </div>
             <video src="drone-speed-up.mp4" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
         </div>
+    
+        <div class="row">
+          <h3>Build process:</h3>
+          <p>This project was undertaken as a computer vision research project; at the start of this project, I experimented with a range of tools to detect hands, as I knew I wanted to do hand gestures to control the drone. From this experimentation, I determined MediaPipe best fit the requirements of what I was planning to do. After making this decision, I developed a gesture recognition algorithm and some basic pose-tracking functionality and mapped them to the controls I planned to use. <br>
+          <br>From here, I began working on physical drone control, testing its SDK functionality and deciding on the best path for me to implement my control logic. After deciding on what SDK functions worked for my project, I implemented them into my program along with basic proportional error controllers and some safety features such as a limit as to how close the drone was to the operator. <br>
+          <br>I then encountered some issues with the main program progress as outlined in “What challenged me”, but once I sorted this, I finished implementing the instructions until I was happy with the control set the drone had and began testing the drone with a set routine to test its performance against other drone gesture controllers I found during my literature review.</p> 
+        </div>
+
+        
+        <div class="row">
+          <div class="column">
+            <h3>What challenged me:</h3>
+            <p>The primary challenge I encountered when developing this project occurred when I began transferring the program from running on a laptop test environment to controlling a physical drone, as the three main operations the program had to preform, video feed streaming, hand and body pose processing and drone instruction calculations began to interrupt each other, causing undesirable behaviour such as the video feed freezing or instructions requiring large times to take effect.
+            This led me to learn about concurrency software practices and implement threading into my project, running each core task on a separate thread, resulting in the drone program operating stably at 15fps and with quick response times, allowing for real-time control.</p>
+          </div>
+          <div class="column">
+            <h3>What I learnt:</h3>
+            <p>Working on this project helped me develop skills in drone control logic, human-machine interaction, multi-sensor integration, concurrent software practices, live drone video processing, and conducting literature reviews.</p>
+          </div>
+        </div>
     </div>
+
+    
 
 
     <div class="project">
@@ -76,36 +90,53 @@
                     <li>Operated locally on the limited resources of a Teensy 4.0 microcontroller.</li>
                     <li>Used a weighted map and an A* algorithm to plan efficient paths while avoiding being close to walls and obstacles. </li>
                     <li>Combined multiple sensor inputs (time-of-flight, wheel encoders) to construct a map of the arena and track the robot's position on the map.</li>
+                    <li>Could operate with a only single time-of-flight sensor as was the case in the video.</li>
                 </ul>
             </div> 
             <video src="slam-test-one-tof.mp4" controls style="aspect-ratio: 16/9;" alt="SLAM test with one TOF"></video>
         </div> 
 
-      <div class="project-top" style= "margin-top: 40px;" >
-        <div class="row" style="width:50%;">
+
+
+      <div class="row">
+        <h3>Build process:</h3>
+        <p>I began this project by looking into Robot Operating System (ROS) as I planned to isolate the features of ROS that my team wanted for our project and code lightweight versions of them tailored to our robot's needs. I began by connecting a TOF sensor and servo to use as a makeshift “radar” module and mapped the distance readings to a 2d array, counting how many times that map point was also detected. This provided the basic map that I used to start working on the pathfinding algorithm.<br>
+
+        <br>For the pathfinding algorithm I looked at a variety of algorithms but decided to implement A* search as it would have better performance as I could terminate the algorithm early due to it giving preference to “better nodes”.  Once the basic pathfinding was working (<b>Fig 1</b>), I updated the map generation to make nodes near walls more expensive to the algorithm to prevent the robot from going near walls unless necessary (<b>Fig 2</b>).
+
+        <div class="row">
           <div class="column">
             <figure>
-              <img src="pf_no_wall_cost.png" alt="pf_no_wall_cost.png" style="width:60%" class="left">
-              <figcaption class="left" style="width:60%"><b>Fig 1:</b> Path finding with no wall cost.</figcaption>
+              <img src="pf_no_wall_cost.png" alt="pf_no_wall_cost.png" style="width:30%" class="center">
+              <figcaption class="center" style="text-align: center;"><b>Fig 1:</b> Path finding with no wall cost.</figcaption>
             </figure>
           </div>
-          <div class="column">
+          <div class="column" >
             <figure>
-              <img src="pf_with_wall_cost.png" alt="pf_with_wall_cost.png" style="width:60%" class="left">
-              <figcaption class="left" style="width:60%"><b>Fig 2:</b> Path finding with wall cost.</figcaption>
+              <img src="pf_with_wall_cost.png" alt="pf_with_wall_cost.png" style="width:30%" class="center">
+              <figcaption class="center" style="text-align: center;"><b>Fig 2:</b> Path finding with wall cost.</figcaption>
             </figure>
           </div>
-        </div>  
-        <div class="project-text">
-          <h4>Mapping</h4>
-          <p>Test text for stuff</p>
         </div>
-      </div>   
+        For the navigation I developed a pure pursuit controller that would follow the coordinate list provided by the A* algorithm. Finally, I combined the positional information provided by the wheel encoders and IMU with the coordinate map to allow the robot to move around the arena while continuously updating the map.</p> 
+      </div>
+
+        
+      <div class="row">
+        <div class="column">
+          <h3>What challenged me:</h3>
+          <p>The primary challenge I faced on this project occurred during the development of the localisation software, as testing revealed the information provided by the encoders used to track the robot was not reliable, as while themselves were accurate enough, the tracks slipping on the wheels caused the robot's position to drift over time. This caused the robot to lose track of its position and create false obstacles on the navigation map. I tried to overcome this by using readings from the IMU to determine when the robot was actually moving, which did improve the performance; however, the error still built up, leading me to begin developing a free wheel, which would have provided a better estimate of how the robot's position changed, but I was not able to implement this within the project completion deadline.</p>
+        </div>
+        <div class="column">
+          <h3>What I learnt:</h3>
+          <p>Working on this project helped me develop skills in simultaneous localisation and mapping (SLAM), algorithm development and optimisation, robot pathfinding and robot navigation.</p>
+        </div>
+      </div>
     </div>
 
 
     <div class="project">
-        <h3>BUILDING OCCUPANCY TRACKER - W.I.P.</h3>
+        <h3>BUILDING OCCUPANCY TRACKER - WORK IN PROGRESS</h3>
         <div class="meta">Personal project</div>
         <div class="project-top">
             <div class="project-text">
@@ -118,7 +149,7 @@
                     <li>Will stream multiple video feeds from a raspberry pi camera to a desktop where the computer vision algorithm will be inferenced.</li>
                 </ul>
             </div>
-            <video src="" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
+            <!-- <video src="" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video> -->
         </div>
     </div>
 
@@ -145,6 +176,7 @@
   <div class="container">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:oliver.west@outlook.co.nz">oliver.west@outlook.co.nz</a></p>
+    <p>LinkedIn: <a href="www.linkedin.com/in/oliver-west-uc/">oliver-west-uc</a></p>
   </div>
 </section>
 
