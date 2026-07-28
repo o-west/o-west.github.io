@@ -137,8 +137,8 @@
 
 
     <div class="project">
-        <h3>BUILDING OCCUPANCY TRACKER - WORK IN PROGRESS</h3>
-        <div class="meta">Personal project</div>
+        <h3>BUILDING OCCUPANCY TRACKER</h3>
+        <div class="meta">Personal project - Currently working on</div>
         <div class="project-top">
             <div class="project-text">
                 <p>
@@ -146,28 +146,32 @@
                     and provide warnings when this number exceedes saftey thresholds.
                 </p>
                 <ul>
-                    <li>Currently detects humans and adds them to the occupancy count when they cross a boundry line.</li>
-                    <li>Will stream multiple video feeds from a raspberry pi camera to a desktop where the computer vision algorithm will be inferenced.</li>
+                    <li>Detects humans and tracks their position in frame.</li>
+                    <li>Occupancy account is incresead when a person crosses the boundary line, and is decresead when a person corses it in the oppsiote direction.</li>
+                    <li>Occupancy number is kept track of with early warnings sent to the operator when the number of people inside the space begins to reach the maxium safe limit, with more warnings sent when the number of people corsses this threshold.</li>
                 </ul>
             </div>
-            <!-- <video src="" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video> -->
+            <video src="ocpncy-test-one-vid.mp4" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
+        </div>
+        <div class="row">
+          <h3>Build process:</h3>
+          <p>To begin this process I researched into a range of libaryies to detect humans and track their postion on frame, I also looked into ways to assgin an idea to each detected bounding box to prevent potential false crossing being registered if the algorithm was to be momentarily interupted.<br>
+          <br>After I had selected the libaryies I wanted to use, I began programming the core logic, intergrating the various libaryies togther and connecting them to my laptops video feed, allowing me to test the core logic of the program. Once I had tested this logic, I added saftey warning messages that occurred when occupancy limits were being approached and excceded. <br>
+          <br>I am now working on connecting multiple video streams from Raspberry Pi's to the program so I can set them up on the tops of doors and test the occupancy tracker on a real room with multiple entries / exits.</p> 
+        </div>
+
+        
+        <div class="row">
+          <div class="column">
+            <h3>What challenged me:</h3>
+            <p></p>
+          </div>
+          <div class="column">
+            <h3>What I learnt:</h3>
+            <p></p>
+          </div>
         </div>
     </div>
-
-
-    <!-- <div class="project">
-      <h3>Project Name</h3>
-      <div class="meta">Role · Tools used · Status</div>
-      <img src="" alt="Project demo placeholder" style="aspect-ratio: 16/9;">
-      <p>
-        Short description: what it does, what problem it solves, what you
-        specifically built.
-      </p>
-      <div class="links">
-        <a href="#">View repo →</a>
-        <a href="#">Watch demo →</a>
-      </div>
-    </div> -->
 
   </div>
 </section>
