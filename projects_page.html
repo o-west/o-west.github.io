@@ -19,6 +19,7 @@
   </div>
 </nav>
 
+
 <section id="projects">
   <div class="container">
     <h2>Projects</h2>
@@ -41,28 +42,9 @@
                     <li>Control method allowed for greater flexibility as there was no requirement to retain a model when adding new gestures.</li>
                 </ul>
             </div>
-            <video src="drone-speed-up.mp4" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
         </div>
-    
-        <div class="row">
-          <h3>Build process:</h3>
-          <p>This project was undertaken as a computer vision research project; at the start of this project, I experimented with a range of tools to detect hands, as I knew I wanted to do hand gestures to control the drone. From this experimentation, I determined MediaPipe best fit the requirements of what I was planning to do. After making this decision, I developed a gesture recognition algorithm and some basic pose-tracking functionality and mapped them to the controls I planned to use. <br>
-          <br>From here, I began working on physical drone control, testing its SDK functionality and deciding on the best path for me to implement my control logic. After deciding on what SDK functions worked for my project, I implemented them into my program along with basic proportional error controllers and some safety features such as a limit as to how close the drone was to the operator. <br>
-          <br>I then encountered some issues with the main program progress as outlined in “What challenged me”, but once I sorted this, I finished implementing the instructions until I was happy with the control set the drone had and began testing the drone with a set routine to test its performance against other drone gesture controllers I found during my literature review.</p> 
-        </div>
-
+        <a href="drone_project.html" class="button">Read more</a>
         
-        <div class="row">
-          <div class="column">
-            <h3>What challenged me:</h3>
-            <p>The primary challenge I encountered when developing this project occurred when I began transferring the program from running on a laptop test environment to controlling a physical drone, as the three main operations the program had to preform, video feed streaming, hand and body pose processing and drone instruction calculations began to interrupt each other, causing undesirable behaviour such as the video feed freezing or instructions requiring large times to take effect.
-            This led me to learn about concurrency software practices and implement threading into my project, running each core task on a separate thread, resulting in the drone program operating stably at 15fps and with quick response times, allowing for real-time control.</p>
-          </div>
-          <div class="column">
-            <h3>What I learnt:</h3>
-            <p>Working on this project helped me develop skills in drone control logic, human-machine interaction, multi-sensor integration, concurrent software practices, live drone video processing, and conducting literature reviews.</p>
-          </div>
-        </div>
     </div>
 
     
@@ -84,45 +66,8 @@
                     <li>Could operate with a only single time-of-flight sensor as was the case in the video.</li>
                 </ul>
             </div> 
-            <video src="slam-test-one-tof.mp4" controls style="aspect-ratio: 16/9;" alt="SLAM test with one TOF"></video>
         </div> 
-
-
-
-      <div class="row">
-        <h3>Build process:</h3>
-        <p>I began this project by looking into Robot Operating System (ROS) as I planned to isolate the features of ROS that my team wanted for our project and code lightweight versions of them tailored to our robot's needs. I began by connecting a TOF sensor and servo to use as a makeshift “radar” module and mapped the distance readings to a 2d array, counting how many times that map point was also detected. This provided the basic map that I used to start working on the pathfinding algorithm.<br>
-
-        <br>For the pathfinding algorithm I looked at a variety of algorithms but decided to implement A* search as it would have better performance as I could terminate the algorithm early due to it giving preference to “better nodes”.  Once the basic pathfinding was working (<b>Fig 1</b>), I updated the map generation to make nodes near walls more expensive to the algorithm to prevent the robot from going near walls unless necessary (<b>Fig 2</b>).
-
-        <div class="row">
-          <div class="column">
-            <figure>
-              <img src="pf_no_wall_cost.png" alt="pf_no_wall_cost.png" style="width:30%" class="center">
-              <figcaption class="center" style="text-align: center;"><b>Fig 1:</b> Path finding with no wall cost.</figcaption>
-            </figure>
-          </div>
-          <div class="column" >
-            <figure>
-              <img src="pf_with_wall_cost.png" alt="pf_with_wall_cost.png" style="width:30%" class="center">
-              <figcaption class="center" style="text-align: center;"><b>Fig 2:</b> Path finding with wall cost.</figcaption>
-            </figure>
-          </div>
-        </div>
-        For the navigation I developed a pure pursuit controller that would follow the coordinate list provided by the A* algorithm. Finally, I combined the positional information provided by the wheel encoders and IMU with the coordinate map to allow the robot to move around the arena while continuously updating the map.</p> 
-      </div>
-
-        
-      <div class="row">
-        <div class="column">
-          <h3>What challenged me:</h3>
-          <p>The primary challenge I faced on this project occurred during the development of the localisation software, as testing revealed the information provided by the encoders used to track the robot was not reliable, as while themselves were accurate enough, the tracks slipping on the wheels caused the robot's position to drift over time. This caused the robot to lose track of its position and create false obstacles on the navigation map. I tried to overcome this by using readings from the IMU to determine when the robot was actually moving, which did improve the performance; however, the error still built up, leading me to begin developing a free wheel, which would have provided a better estimate of how the robot's position changed, but I was not able to implement this within the project completion deadline.</p>
-        </div>
-        <div class="column">
-          <h3>What I learnt:</h3>
-          <p>Working on this project helped me develop skills in simultaneous localisation and mapping (SLAM), algorithm development and optimisation, robot pathfinding and robot navigation.</p>
-        </div>
-      </div>
+        <a href="slam_nav_project.html" class="button">Read more</a>
     </div>
 
 
@@ -141,16 +86,8 @@
                     <li>Occupancy number is kept track of with early warnings sent to the operator when the number of people inside the space begins to reach the maxium safe limit, with more warnings sent when the number of people corsses this threshold.</li>
                 </ul>
             </div>
-            <video src="ocpncy-test-one-vid.mp4" controls style="aspect-ratio: 16/9;" alt="Drone video speed up"></video>
         </div>
-        <div class="row">
-          <h3>Build process so far:</h3>
-          <p>To begin this process I researched into a range of libraries to detect humans and track their postion on frame, I also looked into ways to assgin an idea to each detected bounding box to prevent potential false crossing being registered if the algorithm was to be momentarily interupted.<br>
-          <br>After I had selected the libraries I wanted to use, I began programming the core logic, intergrating the various libraries togther and connecting them to my laptops video feed, allowing me to test the core logic of the program. Once I had tested this logic, I added saftey warning messages that occurred when occupancy limits were being approached and excceded. <br>
-          <br>I am now working on connecting multiple video streams from Raspberry Pi's to the program so I can set them up on the tops of doors and test the occupancy tracker on a real room with multiple entries / exits.</p> 
-        </div>
-
-
+        <a href="building_occupancy_tracker.html" class="button">Read more</a>
     </div>
 
   </div>
