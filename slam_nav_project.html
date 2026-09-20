@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Oliver West Portfolio</title>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <strong>Oliver West's Portfolio</strong>
+    <ul>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="projects_page.html">Projects</a></p>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<section id="projects">
+  <div class="container">
+    <div class="project">
+        <h3>LIGHTWEIGHT SLAM PATHFINDING AND NAVIGATION</h3>
+        <div class="meta">University of Canterbury</div>
+        <div class="project-top">
+            <div class="project-text"> 
+                <p>
+                    Built a lightweight simultaneous localisation and mapping (SLAM) algorithm in C to run on a Teensy 4.0 microcontroller.
+                    This algorithm was designed for an autonomous robot to navigate an arena, collect targets, and return to its starting point when full.
+                </p>
+                <ul>
+                    <li>Operated locally on the limited resources of a Teensy 4.0 microcontroller.</li>
+                    <li>Used a weighted map and an A* algorithm to plan efficient paths while avoiding being close to walls and obstacles. </li>
+                    <li>Combined multiple sensor inputs (time-of-flight, wheel encoders) to construct a map of the arena and track the robot's position on the map.</li>
+                    <li>Could operate with a only single time-of-flight sensor as was the case in the video.</li>
+                </ul>
+            </div> 
+            <video src="slam-test-one-tof.mp4" controls style="aspect-ratio: 16/9;" alt="SLAM test with one TOF"></video>
+        </div> 
+
+
+
+      <div class="row">
+        <h3>Build process:</h3>
+        <p>I began this project by looking into Robot Operating System (ROS) as I planned to isolate the features of ROS that my team wanted for our project and code lightweight versions of them tailored to our robot's needs. I began by connecting a TOF sensor and servo to use as a makeshift “radar” module and mapped the distance readings to a 2d array, counting how many times that map point was also detected. This provided the basic map that I used to start working on the pathfinding algorithm.<br>
+
+        <br>For the pathfinding algorithm I looked at a variety of algorithms but decided to implement A* search as it would have better performance as I could terminate the algorithm early due to it giving preference to “better nodes”.  Once the basic pathfinding was working (<b>Fig 1</b>), I updated the map generation to make nodes near walls more expensive to the algorithm to prevent the robot from going near walls unless necessary (<b>Fig 2</b>).
+
+        <div class="row">
+          <div class="column">
+            <figure>
+              <img src="pf_no_wall_cost.png" alt="pf_no_wall_cost.png" style="width:30%" class="center">
+              <figcaption class="center" style="text-align: center;"><b>Fig 1:</b> Path finding with no wall cost.</figcaption>
+            </figure>
+          </div>
+          <div class="column" >
+            <figure>
+              <img src="pf_with_wall_cost.png" alt="pf_with_wall_cost.png" style="width:30%" class="center">
+              <figcaption class="center" style="text-align: center;"><b>Fig 2:</b> Path finding with wall cost.</figcaption>
+            </figure>
+          </div>
+        </div>
+        For the navigation I developed a pure pursuit controller that would follow the coordinate list provided by the A* algorithm. Finally, I combined the positional information provided by the wheel encoders and IMU with the coordinate map to allow the robot to move around the arena while continuously updating the map.</p> 
+      </div>
+
+        
+      <div class="row">
+        <div class="column">
+          <h3>What challenged me:</h3>
+          <p>The primary challenge I faced on this project occurred during the development of the localisation software, as testing revealed the information provided by the encoders used to track the robot was not reliable, as while themselves were accurate enough, the tracks slipping on the wheels caused the robot's position to drift over time. This caused the robot to lose track of its position and create false obstacles on the navigation map. I tried to overcome this by using readings from the IMU to determine when the robot was actually moving, which did improve the performance; however, the error still built up, leading me to begin developing a free wheel, which would have provided a better estimate of how the robot's position changed, but I was not able to implement this within the project completion deadline.</p>
+        </div>
+        <div class="column">
+          <h3>What I learnt:</h3>
+          <p>Working on this project helped me develop skills in simultaneous localisation and mapping (SLAM), algorithm development and optimisation, robot pathfinding and robot navigation.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:oliver.west@outlook.co.nz">oliver.west@outlook.co.nz</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/oliver-west-uc/">oliver-west-uc</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Oliver West
+</footer>
+
+</body>
+</html>
